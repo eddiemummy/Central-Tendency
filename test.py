@@ -11,6 +11,8 @@ class TestCentralTendencyNine:
         assert Memo9(data=data,method="median").calculate() == 6
     def test_mode(self):
         assert Memo9(data=data,method="mode").calculate()["mode"] == data
+    def test_sample_var(self):
+        assert Memo9(data=data,method="sample_var").calculate() == 10
 
 class TestCentralTendencyTen:
     def test_mean(self):
@@ -19,3 +21,5 @@ class TestCentralTendencyTen:
         assert Memo10(data=data,method="median").calculate() == 6
     def test_mode(self):
         assert Memo10(data=data,method="mode").calculate()["mode"] == data
+    def test_sample_var(self):
+        assert Memo10(data=data,method="sample_var").calculate() == 10

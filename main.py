@@ -19,6 +19,8 @@ class Memo9:
         mean   the average of a data set.
         median  the middle of the set of numbers.
         mode  the most common number in a data set.
+        sample_var  variance of the sample
+        sample_std  standard deviation of the sample
                   
     """
     method: str
@@ -39,6 +41,19 @@ class Memo9:
                     d["mode"].append(k)
 
             return {"mode":d["mode"],"count":d["count"]}
+        elif self.method == "sample_var":
+            sum_ = 0
+            for i in self.data:
+                sq = (i-np.mean(self.data))**2
+                sum_ += sq
+            return sum_/(len(self.data)-1)
+        elif self.method == "sample_std":
+            sum_ = 0
+            for i in self.data:
+                sq = (i-np.mean(self.data))**2
+                sum_ += sq
+            return np.sqrt(sum_/(len(self.data)-1)) 
+        
         else:
             print("You must enter a valid method!")
 
@@ -75,6 +90,18 @@ class Memo10:
                         d["mode"].append(k)
 
                 return {"mode":d["mode"],"count":d["count"]}
+            case "sample_var":
+                sum_ = 0
+                for i in self.data:
+                    sq = (i-np.mean(self.data))**2
+                    sum_ += sq
+                return sum_/(len(self.data)-1)
+            case "sample_std":
+                sum_ = 0
+                for i in self.data:
+                    sq = (i-np.mean(self.data))**2
+                    sum_ += sq
+                return np.sqrt(sum_/(len(self.data)-1))        
             case _:
                 print("You must enter a valid method!")
         
